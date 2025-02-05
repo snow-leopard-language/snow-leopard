@@ -18,6 +18,7 @@ set(CMAKE_C_STANDARD 23)
 
 add_executable(sl
         src/error.c
+        src/token.c
         src/lexer.c
         src/main.c
 )

@@ -2,7 +2,7 @@
 #include "include/error.h"
 
 Error ok = {
-    ERROR_NONE,
+    error_none,
     NULL,
 };
 
@@ -10,7 +10,7 @@ Error lex(char *source, char **begining, char **end) {
     Error error = ok;
 
     if (!source || !begining || !end) {
-        ERROR_PREPARE(error, ERROR_ARGUMENTS, "Can not lex empty source");
+        ERROR_PREPARE(error, error_arguments, "Can not lex empty source");
         return error;
     }
     *begining = source;
@@ -27,7 +27,7 @@ Error parse_expression(char *source) {
 }
 
 void error (Error error) {
-    if (error.type == ERROR_NONE) {
+    if (error.type == error_none) {
         return;
     }
     printf("ERROR: ");
@@ -35,21 +35,21 @@ void error (Error error) {
         default:
             printf("UNKNOWN: Error type...");
         break;
-        case ERROR_ARGUMENTS:
+        case error_arguments:
             printf("INVALID ARGUMENTS");
         break;
-        case ERROR_SYNTAX:
+        case error_syntax:
             printf("INVALID SYNTAX");
         break;
-        case ERROR_TYPE:
+        case error_type:
             printf("MISMATCHED TYPES");
         break;
-        case ERROR_TODO:
+        case error_todo:
             printf("TODO: (not implemented)");
         break;
-        case ERROR_GENERIC:
+        case error_generic:
             break;
-        case ERROR_NONE:
+        case error_none:
             break;
     }
     putchar('\n');

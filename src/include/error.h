@@ -10,12 +10,12 @@
 
 typedef struct Error {
     enum {
-        ERROR_NONE = 0,
-        ERROR_ARGUMENTS,
-        ERROR_SYNTAX,
-        ERROR_TYPE,
-        ERROR_GENERIC,
-        ERROR_TODO,
+        error_none = 0,
+        error_arguments,
+        error_syntax,
+        error_type,
+        error_generic,
+        error_todo,
     } type;
     char *message;
 } Error;
