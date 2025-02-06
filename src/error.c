@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include "include/error.h"
 
 Error ok = {
@@ -26,7 +27,7 @@ Error parse_expression(char *source) {
     return error;
 }
 
-void error (Error error) {
+void error(Error error) {
     if (error.type == error_none) {
         return;
     }

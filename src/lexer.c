@@ -5,8 +5,6 @@
 #include "include/token.h"
 #include "include/lexer.h"
 
-#include <stdio.h>
-
 Lexer* lexer_init(char* contents)
 {
     Lexer* lexer = calloc(1, sizeof(struct Lexer));

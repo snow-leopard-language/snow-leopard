@@ -17,6 +17,8 @@ set(SL_VERSION "" CACHE STRING "Override Snow Leopard Language version string. D
 set(CMAKE_C_STANDARD 23)
 
 add_executable(sl
+        src/util.c
+        src/utf8.c
         src/error.c
         src/token.c
         src/lexer.c

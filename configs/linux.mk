@@ -5,24 +5,22 @@ BINDIR = $(PREFIX)/bin
 # variables used during build
 PLATFORM = linux
 ARCH = x86_64
-CFLAGS_OLD = -g -std=c23 \
+CFLAGS = -g -std=c23 -D_XOPEN_SOURCE=800 \
+	-Iinclude \
+	-w \
 	-Wall \
 	-Werror \
 	-Wextra \
- 	-Iinclude \
- 	-Wno-unused-parameter \
- 	-Wmultichar \
- 	-Wno-four-char-constants \
-	-pedantic \
- 	-D_XOPEN_SOURCE=800
-CFLAGS = -g -std=c23 \
+	-pedantic
+CFLAGS_ = -g -std=c23 -D_XOPEN_SOURCE=800 \
+	-Iinclude \
+	-w \
 	-Wall \
 	-Werror \
 	-Wextra \
- 	-Iinclude \
- 	-Wno-unused-parameter \
-	-pedantic \
- 	-D_XOPEN_SOURCE=800
+ 	-Wno-implicit-function-declaration \
+ 	-Wno-int-conversion \
+	-pedantic
 LDFLAGS =
 LIBS = -lm
 
