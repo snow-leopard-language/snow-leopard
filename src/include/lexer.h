@@ -9,7 +9,7 @@ typedef struct Lexer {
     char* contents;
 } Lexer;
 
-Lexer* lexer_init(char* contents);
+Lexer* init_lexer(char* contents);
 
 void lexer_advance(Lexer* lexer);
 

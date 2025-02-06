@@ -1,18 +1,21 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "include/lexer.h"
+#include "include/ast.h"
 
 void usage(char **argv)
 {
     printf("Usage: sl %s [parsing file]\n", argv[0]);
 }
 
-int main(int argc, char **argv)
+int main (int argc, char* argv[])
 {
-    Lexer* lexer = lexer_init(
+    AST* ast = init_ast(ast_variable_declaration);
+
+
+    Lexer* lexer = init_lexer(
         "string name = \"jon doe\";\n"
         "print(name);\n"
     );

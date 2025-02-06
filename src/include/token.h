@@ -1,6 +1,55 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+//
+//
+// alignas
+// alignof
+// auto
+// bool
+// break
+// case
+// char
+// const
+// constexpr
+// continue
+// default
+// do
+// double
+// else
+// enum
+// extern
+// false
+// float
+// for
+// goto
+// if
+// inline
+// int
+// long
+// nullptr
+// register
+// restrict
+// return
+// short
+// signed
+// sizeof
+// static
+// static_assert
+// struct
+// switch
+// thread_local
+// true
+// typedef
+// typeof
+// typeof_unqual
+// union
+// unsigned
+// void
+// volatile
+
+
+
 //    ( and ) are the left and right parentheses, singular parenthesis.
 //    [ and are the left and right square brackets.
 //    { and } are the left and right curly braces.

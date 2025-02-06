@@ -22,5 +22,6 @@ add_executable(sl
         src/error.c
         src/token.c
         src/lexer.c
+        src/ast.c
         src/main.c
 )

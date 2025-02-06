@@ -2,19 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "include/util.h"
 #include "include/token.h"
 #include "include/lexer.h"
 
-Lexer* lexer_init(char* contents)
+Lexer* init_lexer(char* contents)
 {
-    Lexer* lexer = calloc(1, sizeof(struct Lexer));
+    Lexer* lexer = xcalloc(1, sizeof(struct Lexer));
     lexer->contents = contents;
     lexer->i = 0;
     lexer->ch = contents[lexer->i];
 
     return lexer;
 }
-
 
 void lexer_advance(Lexer* lexer)
 {
@@ -77,13 +77,13 @@ Token* lexer_collect_string(Lexer* lexer)
 {
     lexer_advance(lexer);
 
-    char* value = calloc(1, sizeof(char));
+    char* value = xcalloc(1, sizeof(char));
     value[0] = '\0';
 
     while (lexer->ch != '"')
     {
         char* s = lexer_get_char_as_string(lexer);
-        value = realloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
+        value = xrealloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
         strcat(value, s);
 
         lexer_advance(lexer);
@@ -96,13 +96,13 @@ Token* lexer_collect_string(Lexer* lexer)
 
 Token* lexer_collect_identifier(Lexer* lexer)
 {
-    char* value = calloc(1, sizeof(char));
+    char* value = xcalloc(1, sizeof(char));
     value[0] = '\0';
 
     while (isalnum(lexer->ch))
     {
         char* s = lexer_get_char_as_string(lexer);
-        value = realloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
+        value = xrealloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
         strcat(value, s);
 
         lexer_advance(lexer);
@@ -113,7 +113,7 @@ Token* lexer_collect_identifier(Lexer* lexer)
 
 char* lexer_get_char_as_string(Lexer* lexer)
 {
-    char* string = calloc(2, sizeof(char));
+    char* string = xcalloc(2, sizeof(char));
     string[0] = lexer->ch;
     string[1] = '\0';
 
